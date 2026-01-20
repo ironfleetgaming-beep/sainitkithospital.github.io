@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Nit Kit Hospital | Advanced Pediatric & Gynaecology Care</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #0f172a;
+            --accent: #f43f5e;
+            --success: #22c55e;
+            --bg-light: #f1f5f9;
+            --white: #ffffff;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* HEADER & HERO */
+        header {
+            background: linear-gradient(135deg, #075985 0%, #0369a1 100%), url('https://www.toptal.com/designers/subtlepatterns/patterns/medical-pattern.png');
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: -1.5px;
+            font-weight: 800;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        header p { font-size: 1.2rem; margin-top: 15px; font-weight: 300; }
+
+        .location-badge {
+            display: inline-block;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.9rem;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            color: var(--secondary);
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        /* SECTIONS */
+        section { max-width: 1200px; margin: 80px auto; padding: 0 25px; }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: var(--primary);
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        /* CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,1);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .card i {
+            font-size: 3rem;
+            background: linear-gradient(to bottom right, var(--primary), #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .card b { font-size: 1.3rem; display: block; margin-bottom: 10px; }
+
+        /* DOCTORS */
+        .doc-card { text-align: left; position: relative; overflow: hidden; }
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--primary);
+        }
+
+        .doc-tag {
+            background: #f0f9ff;
+            color: var(--primary-dark);
+            padding: 6px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        /* APPOINTMENT FORM */
+        .form-box {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            max-width: 850px;
+            margin: 0 auto;
+            border: 1px solid #e2e8f0;
+        }
+
+        label { display: block; margin-bottom: 10px; font-weight: 700; font-size: 0.85rem; color: #64748b; text-transform: uppercase; }
+        
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
+        .age-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+
+        input, select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #f1f5f9;
+            border-radius: 14px;
+            font-size: 1rem;
+            transition: 0.3s;
+            background: #f8fafc;
+            color: var(--secondary);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: #fff;
+            box-shadow: 0 0 0 5px rgba(2, 132, 199, 0.15);
+        }
+
+        .btn-submit {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 16px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(2, 132, 199, 0.4);
+        }
+
+        /* CONTACT */
+        .contact-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 40px; }
+        .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .info-item i { color: var(--primary); font-size: 1.2rem; }
+
+        /* FLOATING BUTTONS */
+        .float-btn {
+            position: fixed;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            z-index: 2000;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .call-btn { bottom: 110px; background: var(--accent); animation: pulse 2s infinite; }
+        .whatsapp-btn { bottom: 35px; background: var(--success); }
+        
+        .float-btn i { font-size: 1.5rem; }
+        .float-btn:hover { transform: scale(1.1) rotate(10deg); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 100px;
+            border-top: 5px solid var(--primary);
+        }
+
+        @media(max-width: 768px) {
+            .row, .contact-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.2rem; }
+            .form-box { padding: 30px 20px; }
+            nav a { padding: 10px 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="animate__animated animate__fadeIn">
+        <h1>Sai Nit Kit Hospital</h1>
+        <p><i class="fas fa-heartbeat"></i> Trusted Advanced Pediatric & Mother Care</p>
+        <div class="location-badge">
+            <i class="fas fa-map-marker-alt"></i> Near Rajdhani Hotel, Kashi Nagar, Kannauj
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="#services">Services</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#appointment">Booking</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="services">
+    <h2>Our Specializations</h2>
+    <div class="grid">
+        <div class="card"><i class="fas fa-ambulance"></i><b>Emergency Care</b><p>Fast-response trauma and critical care available 24/7.</p></div>
+        <div class="card"><i class="fas fa-baby-carriage"></i><b>NICU & PICU</b><p>State-of-the-art life support for newborns and kids.</p></div>
+        <div class="card"><i class="fas fa-stethoscope"></i><b>Pediatrics</b><p>Dedicated child health experts for all age groups.</p></div>
+        <div class="card"><i class="fas fa-vial"></i><b>Lab Services</b><p>Fully automated pathology for precise results.</p></div>
+        <div class="card"><i class="fas fa-female"></i><b>Gynaecology</b><p>Safe delivery and complete women's healthcare.</p></div>
+        <div class="card"><i class="fas fa-prescription-bottle-alt"></i><b>Pharmacy</b><p>Quality medicines and vaccinations in-house.</p></div>
+    </div>
+</section>
+
+<section id="doctors">
+    <h2>Specialist Doctors</h2>
+    <div class="grid">
+        <div class="card doc-card">
+            <i class="fas fa-user-md"></i><br>
+            <b>Dr. Nitin Vaish</b>
+            <span>MBBS, DCH</span><br>
+            <div class="doc-tag">Child Specialist (Pediatrics)</div>
+        </div>
+        <div class="card doc-card">
+            <i class="fas fa-user-nurse"></i><br>
+            <b>Dr. Kaushi Vaish</b>
+            <span>MBBS, DGO</span><br>
+            <div class="doc-tag">Gynaecologist & Obstetrician</div>
+        </div>
+        <div class="card doc-card">
+            <i class="fas fa-hospital-user"></i><br>
+            <b>Dr. Hemraj Vaish</b>
+            <span>Senior Consultant</span><br>
+            <div class="doc-tag">General Medicine Expert</div>
+        </div>
+    </div>
+</section>
+
+<section id="appointment">
+    <h2>Online Appointment</h2>
+    <div class="form-box">
+        <form id="appointmentForm">
+            <div class="row">
+                <div>
+                    <label>Patient Name</label>
+                    <input type="text" id="name" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <label>Gender</label>
+                    <select id="sex" required>
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>Patient Age</label>
+            <div class="age-row">
+                <input type="number" id="ageY" placeholder="Years" min="0">
+                <input type="number" id="ageM" placeholder="Months" min="0" max="11">
+                <input type="number" id="ageD" placeholder="Days" min="0" max="30">
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>Guardian Name</label>
+                    <input type="text" id="relName" placeholder="Name" required>
+                </div>
+                <div>
+                    <label>Relation</label>
+                    <select id="relation" required>
+                        <option value="">Select</option>
+                        <option>Father</option>
+                        <option>Mother</option>
+                        <option>Husband</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile" maxlength="10" placeholder="10 Digit No." required>
+                </div>
+                <div>
+                    <label>Chief Complaint</label>
+                    <input type="text" id="problem" placeholder="e.g. Fever Since 2 Days">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fab fa-whatsapp"></i> Confirm via WhatsApp
+            </button>
+        </form>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="contact-grid">
+        <div class="card" style="text-align:left">
+            <h3 style="margin-top:0">Contact Details</h3>
+            <div class="info-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <span><b>Sai Nit Kit Hospital</b><br>Kashi Nagar, Saraimeera, Kannauj</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone-square-alt"></i>
+                <span>+91 9336202196</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>sainitkit.hospital@gmail.com</span>
+            </div>
+            
+            <a href="https://maps.app.goo.gl/YourMapLinkHere" target="_blank"
+               style="display:block; text-align:center; margin-top:30px; background:var(--secondary); color:white; padding:15px; border-radius:12px; text-decoration:none; font-weight:700">
+                <i class="fas fa-location-arrow"></i> Open in Google Maps
+            </a>
+        </div>
+        <div class="card" style="padding:10px; overflow:hidden">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.44474327265!2d79.9168!3d27.0624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDAzJzQ0LjYiTiA3OcKwNTUnMDAuNSJF!5e0!3m2!1sen!2sin!4v1640000000000" 
+                width="100%" height="350" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <h2 style="color:white; margin-bottom:10px">Sai Nit Kit Hospital</h2>
+    <p>Healing Hands, Caring Hearts - Serving Kannauj with Excellence.</p>
+    <div style="margin-top:30px; font-size: 0.85rem; opacity: 0.6;">
+        © 2026 Sai Nit Kit Hospital | Developed with Care
+    </div>
+</footer>
+
+<a href="tel:+919336202196" class="float-btn call-btn" title="Call Emergency">
+    <i class="fas fa-phone-alt"></i>
+</a>
+<a href="https://wa.me/919336202196" target="_blank" class="float-btn whatsapp-btn" title="WhatsApp Us">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const mobile = document.getElementById("mobile").value;
+        const age = `${document.getElementById("ageY").value || 0}Y ${document.getElementById("ageM").value || 0}M ${document.getElementById("ageD").value || 0}D`;
+
+        if(mobile.length !== 10) {
+            alert("Please enter a valid 10-digit mobile number");
+            return;
+        }
+
+        const msg = 
+            "*NEW APPOINTMENT REQUEST*\n" +
+            "━━━━━━━━━━━━━━━━━━\n" +
+            "*Patient:* " + name + "\n" +
+            "*Age:* " + age + "\n" +
+            "*Sex:* " + document.getElementById("sex").value + "\n" +
+            "*Guardian:* " + document.getElementById("relName").value + " (" + document.getElementById("relation").value + ")\n" +
+            "*Mobile:* " + mobile + "\n" +
+            "*Problem:* " + (document.getElementById("problem").value || "General Checkup") + "\n" +
+            "━━━━━━━━━━━━━━━━━━\n" +
+            "_Request sent from Hospital Website_";
+
+        window.open("https://wa.me/919336202196?text=" + encodeURIComponent(msg), "_blank");
+    });
+
+    // Numbers only for mobile
+    document.getElementById("mobile").addEventListener("input", function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+</script>
+
+</body>
+</html>
